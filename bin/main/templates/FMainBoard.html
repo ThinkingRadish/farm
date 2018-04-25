@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>メイン掲示板</title>
+</head>
+<body>
+<h1 align="center">メイン掲示板</h1>
+<h3 align="center"th:each="entity, status : ${textData}">
+<nobr  th:text="${status.count} + '	'+ ${entity.name} + ' : ' + ${entity.text}"></nobr>
+</h3>
+<form action="/PostTextResult" method="post" >
+<textarea  rows="4" cols="40" name="text"></textarea><br>
+<input type="submit" value="投稿" ><br>
+<br>
+<a href="/">ログイン</a>
+</form>
+</body>
+</html>

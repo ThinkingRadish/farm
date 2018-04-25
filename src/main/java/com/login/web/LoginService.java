@@ -1,12 +1,14 @@
-package com.news.web;
+package com.login.web;
 
 import java.util.Objects;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.board.web.BoardController;
+import com.cookie.web.CookieLogic;
+import com.news.web.UserEntity;
+import com.news.web.UserEntityRepository;
 
 
 
@@ -18,23 +20,14 @@ public class LoginService {
 	@Autowired
 	BoardController bc;
 	@Autowired
-	HttpServletResponse response;
+	CookieLogic cl;
 
 	public String loginLogic(String name, String pass){
 		UserEntity entity = repository.findByName(name);
-
 		if((!(Objects.isNull(entity)) && entity.getPass().equals(pass))){
-
-			Cookie cookie = new Cookie("userName", entity.getName());
-			cookie.setMaxAge(60 * 30);
-			cookie.setPath("/");
-			cookie.setSecure(false);
-			response.addCookie(cookie);
-
-			return "LoginSucceeded";
+			return cl.bakeCookie(entity);
 		}else{
 			return "LoginFailed";
 		}
-
 	}
 }

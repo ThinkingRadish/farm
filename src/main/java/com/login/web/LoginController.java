@@ -1,6 +1,7 @@
 package com.login.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.cookie.web.CookieLogic;
 import com.registration.web.RegistrationService;
 
 @Controller
+@ComponentScan
 public class LoginController {
 	@Autowired
 	RegistrationService rs;
@@ -18,6 +20,12 @@ public class LoginController {
 	LoginService ls;
 	@Autowired
 	CookieLogic cl;
+
+	@RequestMapping("/Logout")
+	public String tologout(){
+		cl.deleteCookie();
+		return "Logout";
+	}
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String toLoginView(){
@@ -43,9 +51,5 @@ public class LoginController {
 		return ls.loginLogic(name, pass);
 	}
 
-	@RequestMapping("/logout")
-	public String logout(){
-		cl.deleteCookie();
-		return "/Logout";
-	}
+
 }

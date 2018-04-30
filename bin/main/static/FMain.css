@@ -1,0 +1,27 @@
+@import url("sanitize.css");
+
+body{
+	background-image: url("img/gatag-00011783.jpg");
+	background-size: cover;
+}
+
+.board{
+	background-color: #f8f8f8;
+	background-size: cover;
+	border: 5px solid #000000;
+	width: 600px;
+	margin: 50px auto;
+	padding: 20px;
+}
+
+.control{
+	display: block;
+	background-color: white;
+	color: red;
+	margin: 0px auto;
+	width: 260px;
+	text-align: center;
+
+}
+
+

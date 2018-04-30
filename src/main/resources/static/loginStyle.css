@@ -1,0 +1,35 @@
+@import url("sanitize.css");
+
+body {
+	background-image: url("img/photo0000-3200.jpg");
+	background-size: cover;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+button {
+	border-radius: 10px;
+	background-color: #8484ff;
+	width: 80%;
+}
+
+.content {
+	border: 1px solid #d1d1d1;
+	width: 300px;
+	margin: 100px 1000px;
+	background-color: #ffffff;
+	padding: 10px;
+}
+
+.control {
+	margin: 10px auto;
+}
+
+.required{
+	color: #f33;
+	background-color: #fee;
+	font-size: .8em;
+}

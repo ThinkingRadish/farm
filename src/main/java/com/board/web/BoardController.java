@@ -16,7 +16,7 @@ public class BoardController {
 	@Autowired
 	CookieLogic cl;
 
-	@RequestMapping("/MainBoard")
+	@RequestMapping("/")
 	public String toMainBoard(Model model){
 		model.addAttribute("textData", bs.getBoardText());
 		return cl.checkCookie();

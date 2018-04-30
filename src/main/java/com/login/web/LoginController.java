@@ -27,7 +27,7 @@ public class LoginController {
 		return "Logout";
 	}
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/LoginView", method=RequestMethod.GET)
 	public String toLoginView(){
 		return "LoginView";
 	}

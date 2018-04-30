@@ -2,19 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>掲示板</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="Main.css">
 </head>
+
 <body>
-<h1 align="center">メイン掲示板</h1>
-<h3 align="center"th:each="entity, status : ${textData}">
-<nobr  th:text="${status.count} + '	'+ ${entity.name} + ' : ' + ${entity.text}"></nobr>
-</h3>
-<form action="/PostTextResult" method="post" >
-<textarea  rows="4" cols="40" name="text"></textarea><br>
-<input type="submit" value="投稿" ><br>
-<br>
-<a href="/Logout">ログアウト</a>
-</form>
+
+
+	<div class="board">
+		<h3 th:each="entity, status : ${textData}">
+			<th:block
+				th:text="${status.count} + '	'+ ${entity.name} + ' : ' + ${entity.text}">
+			</th:block>
+		</h3>
+	</div>
+	<form action="/PostTextResult" method="post">
+		<div class="message" align="center">
+
+			<textarea rows="6" cols="82" name="text"></textarea>
+		</div>
+		<button type="submit">投稿</button>
+
+	</form>
+
+	<div align="center">
+		<a href="/Logout">ログアウト</a>
+	</div>
 
 </body>
 </html>
